@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <title>Telescope Observation Constraint Visualization Tool</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <!-- Padding -->
+    <div STYLE="margin:0;padding:0;border:0;width:100%;height:8px;">
+      <div STYLE="position:fixed;z-index:1;"><canvas CLASS="canvas" ID="Nothing" HEIGHT=8 WIDTH=1500 STYLE="position:fixed;z-index:1;top:0;bottom:0;left:8;margin:0;border:0;padding:0;width:100%;height:8px;">Get a modern browser!</canvas>
+	<canvas CLASS="canvas" ID="Nothing-overlay" HEIGHT=8 WIDTH=1500 STYLE="position:fixed;z-index:1;top:0;bottom:0;left:8;margin:0;padding:0;border:0;background-color: transparent;width:100%;height:8;"></canvas>
+      </div>
+    </div>
+    
+    <!-- Color Bar and Time Displays -->
+    <div STYLE="margin:0;padding:0;border:0;width:100%;height:64px;">
+      <div STYLE="position:fixed;z-index:1;">
+	<canvas CLASS="canvas" ID="Color Bar" HEIGHT=60 WIDTH=1500 STYLE="position:fixed;z-index:1;top:8;bottom:0;left:8;margin:0;border:0;padding:0;width:100%;height:60px;">Get a modern browser!</canvas>
+	<canvas CLASS="canvas" ID="Color Bar-overlay" HEIGHT=60 WIDTH=1500 STYLE="position:fixed;z-index:1;top:8;bottom:0;left:8;margin:0;padding:0;border:0;background-color: transparent;width:100%;height:60;"></canvas>
+      </div>
+    </div>
+
+    <!-- Padding -->
+    <div STYLE="margin:0;padding:0;border:0;width:100%;height:4px;">
+      <div STYLE="position:fixed;z-index:1;">
+	<canvas CLASS="canvas" ID="Nothing" HEIGHT=4 WIDTH=1500 STYLE="position:fixed;z-index:1;top:68;bottom:0;left:8;margin:0;border:0;padding:0;width:100%;height:4px;">Get a modern browser!</canvas>
+	<canvas CLASS="canvas" ID="Nothing-overlay" HEIGHT=4 WIDTH=1500 STYLE="position:fixed;z-index:1;top:68;bottom:0;left:8;margin:0;padding:0;border:0;background-color: transparent;width:100%;height:4;"></canvas>
+      </div>
+    </div>
+
+    <!-- Global (Unzoomed) Timeline -->
+    <div STYLE="margin:0;padding:0;border:0;width:100%;height:22px;">
+      <div STYLE="position:fixed;z-index:1;">
+	<canvas CLASS="canvas" ID="Global Timeline" HEIGHT=18 WIDTH=1500 STYLE="position:fixed;z-index:1;top:72;bottom:0;left:8;margin:0;border:0;padding:0;width:100%;height:18px;">Get a modern browser!</canvas>
+	<canvas CLASS="canvas" ID="Global Timeline-overlay" HEIGHT=18 WIDTH=1500 STYLE="position:fixed;z-index:1;top:72;bottom:0;left:8;margin:0;padding:0;border:0;background-color: transparent;width:100%;height:18;"></canvas>
+      </div>
+    </div>
+
+    <!-- Padding -->
+    <div STYLE="margin:0;padding:0;border:0;width:100%;height:4px;">
+      <div STYLE="position:fixed;z-index:1;">
+	<canvas CLASS="canvas" ID="Nothing" HEIGHT=4 WIDTH=1500 STYLE="position:fixed;z-index:1;top:90;bottom:0;left:8;margin:0;border:0;padding:0;width:100%;height:4px;">Get a modern browser!</canvas>
+	<canvas CLASS="canvas" ID="Nothing-overlay" HEIGHT=4 WIDTH=1500 STYLE="position:fixed;z-index:1;top:90;bottom:0;left:8;margin:0;padding:0;border:0;background-color: transparent;width:100%;height:4;"></canvas>
+      </div>
+    </div>
+
+    <!-- Local (Zoomed) Timeline -->
+    <div STYLE="margin:0;padding:0;border:0;width:100%;height:8px;">
+      <div STYLE="position:fixed;z-index:1;">
+	<canvas CLASS="canvas" ID="Top Timeline" HEIGHT=18 WIDTH=1500 STYLE="position:fixed;z-index:1;top:94;bottom:0;left:8;margin:0;border:0;padding:0;width:100%;height:18px;">Get a modern browser!</canvas>
+	<canvas CLASS="canvas" ID="Top Timeline-overlay" HEIGHT=18 WIDTH=1500 STYLE="position:fixed;z-index:1;top:94;bottom:0;left:8;margin:0;padding:0;border:0;background-color: transparent;width:100%;height:18;"></canvas>
+      </div>
+    </div>
+
+    <!-- Constraint 1 -->
+    <div STYLE="margin:0;padding:0;border:0;width:100%;height:12px;">
+      <div STYLE="position:relative;">
+	<canvas CLASS="canvas" ID="Constraint 1" HEIGHT=10 WIDTH=1500 STYLE="position:absolute;top:0;left:8;margin:0;border:0;padding:0;width:100%;height:10px;">Get a modern browser!</canvas>
+	<canvas CLASS="canvas" ID="Constraint 1-overlay" HEIGHT=10 WIDTH=1500 STYLE="position:absolute;top:0;left:8;margin:0;padding:0;border:0;background-color: transparent;width:100%;height:10;"></canvas>
+      </div>
+    </div>
+
+    <!-- Constraint 2 -->
+    <div STYLE="margin:0;padding:0;border:0;width:100%;height:12px;">
+      <div STYLE="position:relative;">
+	<canvas CLASS="canvas" ID="Constraint 2" HEIGHT=10 WIDTH=1500 STYLE="position:absolute;top:0;left:8;margin:0;border:0;padding:0;width:100%;height:10px;">Get a modern browser!</canvas>
+	<canvas CLASS="canvas" ID="Constraint 2-overlay" HEIGHT=10 WIDTH=1500 STYLE="position:absolute;top:0;left:8;margin:0;padding:0;border:0;background-color: transparent;width:100%;height:10;"></canvas>
+      </div>
+    </div>
+
+    <!-- Constraint 3 -->
+    <div STYLE="margin:0;padding:0;border:0;width:100%;height:12px;">
+      <div STYLE="position:relative;">
+	<canvas CLASS="canvas" ID="Constraint 3" HEIGHT=10 WIDTH=1500 STYLE="position:absolute;top:0;left:8;margin:0;border:0;padding:0;width:100%;height:10px;">Get a modern browser!</canvas>
+	<canvas CLASS="canvas" ID="Constraint 3-overlay" HEIGHT=10 WIDTH=1500 STYLE="position:absolute;top:0;left:8;margin:0;padding:0;border:0;background-color: transparent;width:100%;height:10;"></canvas>
+      </div>
+    </div>
+
+    <!-- Constraint 4 -->
+    <div STYLE="margin:0;padding:0;border:0;width:100%;height:12px;">
+      <div STYLE="position:relative;">
+	<canvas CLASS="canvas" ID="Constraint 4" HEIGHT=10 WIDTH=1500 STYLE="position:absolute;top:0;left:8;margin:0;border:0;padding:0;width:100%;height:10px;">Get a modern browser!</canvas>
+	<canvas CLASS="canvas" ID="Constraint 4-overlay" HEIGHT=10 WIDTH=1500 STYLE="position:absolute;top:0;left:8;margin:0;padding:0;border:0;background-color: transparent;width:100%;height:10;"></canvas>
+      </div>
+    </div>
+
+    <!-- Constraint 5 -->
+    <div STYLE="margin:0;padding:0;border:0;width:100%;height:12px;">
+      <div STYLE="position:relative;">
+	<canvas CLASS="canvas" ID="Constraint 5" HEIGHT=10 WIDTH=1500 STYLE="position:absolute;top:0;left:8;margin:0;border:0;padding:0;width:100%;height:10px;">Get a modern browser!</canvas>
+	<canvas CLASS="canvas" ID="Constraint 5-overlay" HEIGHT=10 WIDTH=1500 STYLE="position:absolute;top:0;left:8;margin:0;padding:0;border:0;background-color: transparent;width:100%;height:10;"></canvas>
+      </div>
+    </div>
+
+    <!-- Bottom Timeline -->
+      <div STYLE="margin:0;padding:0;border:0;width:100%;height:18px;">
+	<div STYLE="position:fixed;">
+	  <canvas CLASS="canvas" ID="Bottom Timeline" HEIGHT=18 WIDTH=1500 STYLE="position:fixed;bottom:0;left:8;margin:0;border:0;padding:0;width:100%;height:18px;">Get a modern browser!</canvas>
+	  <canvas CLASS="canvas" ID="Bottom Timeline-overlay" HEIGHT=18 WIDTH=1500 STYLE="position:fixed;bottom:0;left:8;margin:0;padding:0;border:0;background-color: transparent;width:100%;height:18;"></canvas>
+	</div>
+      </div>
+      
+		     <script src="script.js"></script>
+		     </body>
+		     </html>
