@@ -1,4 +1,8 @@
-TYPE="text/css">@media all { .page-break	{ display: none; } }@media print { .page-break { display: block; page-break-before: always; } }div { background-color: white;border:0px solid aliceblue; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px; }canvas { background-color:white;  margin: 0px; padding 0px; }
+/* Telescope Observation Constraint Visualization Tool */
+
+/* Due in part to the original code compilation through LISP,
+many of the formatting parameters are found in script.js.
+However, the below parameters were necessary for proper scaling. */
 
 body, html {
   margin: 0;

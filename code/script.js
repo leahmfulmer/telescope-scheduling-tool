@@ -151,6 +151,10 @@ function addIndicatorListener(canvas, bottommargin, leftmargin, canvaswidth, sta
 	clearCanvas('Bottom Timeline-overlay')
     } ,false);
 
+    // When the mouse hovers over the Constraint data,
+    // indicate horizontal position with a red line and
+    // vertical position with both a black line and
+    // emphasis on the Constraint label.
     o.addEventListener('mousemove', function(event){
 	var numdays = localend - localstart
 	var axiswidth = canvaswidth - leftmargin
@@ -179,7 +183,7 @@ function addIndicatorListener(canvas, bottommargin, leftmargin, canvaswidth, sta
 
 	    var closesttransitiontjd = uniqtransarraytjd.filter( function(i){ return i <= xtjd }).pop();
 
-	    // Highlight Constraint Label On Mousemove
+	    // Highlight Constraint label On mousemove
 	    drawText(uniqtransarraytjd[0], 0, bottommargin, 1000, 'Arial', 'black', overlayId);
 	    drawHLine(leftmargin, (bottommargin + 1), 'black', overlayId)
 
@@ -232,7 +236,7 @@ function addIndicatorListener(canvas, bottommargin, leftmargin, canvaswidth, sta
 
     } ,false);
 
-    // clear line
+    // Clear line
     var divId = canvas + '-div';
     if (!document.getElementById(divId)) {
 	var newDiv = document.createElement('div');
@@ -267,6 +271,7 @@ function addTimeDrag(canvas, bottommargin, leftmargin, canvaswidth, canvasheight
 	clearCanvas('Color Bar-overlay')
     } ,false);
 
+    // Click down
     o.addEventListener('mousedown', function (event) {
 	var x = event.offsetX;
 
@@ -301,6 +306,7 @@ function addTimeDrag(canvas, bottommargin, leftmargin, canvaswidth, canvasheight
 	drawText(timearray[index][2], (leftmargin + 897), (bottommargin + 49), 1000, 'Arial', 'black', 'Color Bar-overlay');
     } ,false);
 
+    // Release mouse
     o.addEventListener('mouseup', function (event) {
 	var x = event.offsetX;
 
@@ -339,10 +345,12 @@ function addTimeDrag(canvas, bottommargin, leftmargin, canvaswidth, canvasheight
 	drawText(timearray[index][0], (leftmargin + 440), (bottommargin + 49), 1000, 'Arial', 'black', 'Color Bar-overlay');
 	drawText(timearray[index][1], (leftmargin + 695), (bottommargin + 49), 1000, 'Arial', 'black', 'Color Bar-overlay');
 	drawText(timearray[index][2], (leftmargin + 993), (bottommargin + 49), 1000, 'Arial', 'black', 'Color Bar-overlay');
-	
+
+	// Draw Zoomed PCFs
 	redrawPCFData(bottommargin, leftmargin, canvaswidth, canvasheight, globalstart, start, globalend, end, numcolors)
     } ,false);
 
+    // Press any key to return to Unzoomed timeline
     window.addEventListener('keypress', function (event) {	
 	// Do the same thing that happens in the 'mouseup' and
 	// 'mousedown' events above, but set for the entire canvas.
@@ -387,12 +395,13 @@ function addTimeDrag(canvas, bottommargin, leftmargin, canvaswidth, canvasheight
 	drawText(timearray[index][0], (leftmargin + 440), (bottommargin + 49), 1000, 'Arial', 'black', 'Color Bar-overlay');
 	drawText(timearray[index][1], (leftmargin + 695), (bottommargin + 49), 1000, 'Arial', 'black', 'Color Bar-overlay');
 	drawText(timearray[index][2], (leftmargin + 993), (bottommargin + 49), 1000, 'Arial', 'black', 'Color Bar-overlay');
-	
+
+	// Draw Unzoomed PCFs
 	redrawPCFData(bottommargin, leftmargin, canvaswidth, canvasheight, globalstart, start, globalend, end, numcolors)
 
     } ,false);
 
-    // clear line
+    // Clear line
     var divId = 'Global Timeline-div';
     if (!document.getElementById(divId)) {
 	var newDiv = document.createElement('div');
@@ -488,8 +497,8 @@ function lfulmerJDUT(jd) {
     return result
 }
 
-// lfulmerDMYtoDOY: Recreates the built-in LISP function
-// day-month-year-to-day-of-year
+// lfulmerDMYtoDOY: Recreates the built-in LISP
+// function day-month-year-to-day-of-year
 function lfulmerDMYtoDOY(d, m, y) {
 
     function isLeapYear(y) {
@@ -514,8 +523,8 @@ function lfulmerDMYtoDOY(d, m, y) {
     return result
 }
 
-// lfulmerTJDtoShortSogs: Recreates the built-in LISP function
-// tjd-to-short-sogs-date
+// lfulmerTJDtoShortSogs: Recreates the built-in LISP
+// function tjd-to-short-sogs-date
 function lfulmerTJDtoShortSogs(tjd) {
     function pad(num, size) {
 	var s = num+'';
@@ -533,8 +542,8 @@ function lfulmerTJDtoShortSogs(tjd) {
 
 }
 
-// drawColorBarLabels: Draws all static information within the
-// Legend & Time Display
+// drawColorBarLabels: Draws all static information within
+// the Legend & Time Display
 function drawColorBarLabels(id, numcolors) {
 
     // Draw "Legend & Time Display"
@@ -589,12 +598,6 @@ function drawColorBarLabels(id, numcolors) {
 function drawGlobalTimeline(id, globalstart, globalend, start, end) {
     
     var numdays = globalend - globalstart;
-
-    // Adding this in, let's see if it works.
-    // This *does* make the local and global timelines align from jump,
-    // but I don't know if that's exactly the execution we want...
-    // var numdays = end - start;
-    
     var numweeks = Math.ceil(numdays / 7);
     var pxday = axiswidth / numdays;
     var pxweek = pxday * 7;
@@ -797,7 +800,7 @@ function redrawPCFData(bottommargin, leftmargin, canvaswidth, canvasheight, glob
     };
 }
 
-
+// Create Color Array for all PCFs
 createColorArray(0, 0.5, 1.0, "RGB(255, 160, 122)", "Priority 1");
 createColorArray(1, 0.4, 0.5, "RGB(233, 150, 122)", "Priority 2");
 createColorArray(2, 0.3, 0.4, "RGB(250, 128, 114)", "Priority 3");
@@ -808,6 +811,7 @@ createColorArray(5, 0.0, 0.1, "RGB(100, 110, 92)", "Priority 6");
 drawColorBarLabels("Color Bar", 6);
 addOverlay("Color Bar-overlay");
 
+// Create Time Array for all PCFs
 createTimeArray(0, 12879.5, "2014.222:00:00:00", 1112788800000);
 createTimeArray(1, 12880.5, "2014.223:00:00:00", 1112875200000);
 createTimeArray(2, 12881.5, "2014.224:00:00:00", 1112961600000);
@@ -1197,12 +1201,13 @@ createTimeArray(385, 13264.5, "2015.242:00:00:00", 1146052800000);
 createTimeArray(386, 13265.5, "2015.243:00:00:00", 1146139200000);
 createTimeArray(387, 13266.5, "2015.244:00:00:00", 1146225600000);
 
+// UNZOOMED TIMELINE
 drawGlobalTimeline("Global Timeline", 12879.5, 13266.5, 12880.5, 13265.5);
 // Leaving this out for now because it's acting weird (e.g., listening to the Global Timeline)
 // addIndicatorListener("Global Timeline", 0, 80, 1500, 12879.5, 13266.5);
 addTimeDrag("Global Timeline", 0, 80, 1500, 10, 12879.5, 12880.5, 13266.5, 13265.5, 6);
 
-// Changing start and end to globalstart and globalend
+// TOP ZOOMED TIMELINE
 drawLocalTimeline("Top Timeline", 12879.5, 13266.5);
 addOverlay("Top Timeline-overlay");
 // addIndicatorListener("Top Timeline", 0, 80, 1500, 12880.5, 13265.5);
@@ -1899,7 +1904,7 @@ addOverlay("Constraint 5-overlay");
 addCanvas("Constraint 5");
 addIndicatorListener("Constraint 5", 0, 80, 1500, 12879.5, 13266.5);
 
-
+// BOTTOM ZOOMED TIMELINE
 drawLocalTimeline("Bottom Timeline", 12879.5, 13266.5);
 addOverlay("Bottom Timeline-overlay");
 addIndicatorListener("Bottom Timeline", 0, 80, 1500, 12879.5, 13266.5)
